@@ -94,12 +94,21 @@ $p_id = $_GET['id'];
     </div>
   </div>
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function myFunction() {
       var ph = <?php echo ($res['phone_number']); ?>;
       document.write("Confirm Your Order!", "For confirmation,Please contact with this number.\n" + "Contact Number: " + ph + "\n");
     }
-  </script>
+  </script> -->
+
+  <script type="text/javascript">
+  function myFunction() {
+    var ph = <?php echo ($res['phone_number']); ?>;
+    var message = "Confirm Your Order!\nFor confirmation, please contact with this number.\nContact Number: " + ph;
+    alert(message); // Display a popup box with the message
+  }
+</script>
+
   
   <?php include("footer.php"); ?>
   

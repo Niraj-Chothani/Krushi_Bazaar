@@ -18,7 +18,7 @@
 
   <style>
     /* vertical line */
-    
+
 
     .vl {
       border-left: 6px solid #014000;
@@ -30,10 +30,10 @@
     }
 
 
-    .eq{
+    .eq {
       /* margin-top: 0px; */
       display: inline-block;
-      position: fixed!important;
+      position: fixed !important;
       top: 0;
     }
 
@@ -78,13 +78,12 @@
     }
 
 
-    footer{
+    footer {
       position: static;
       width: 100%;
       margin-bottom: 0px;
       margin-top: 100px;
     }
-
   </style>
 
 </head>
@@ -118,7 +117,7 @@
             <form method="POST" action="backends/product_server.php" enctype="multipart/form-data">
 
               <div class="form-group">
-                <select class="custom-select my-1" name="selection">
+                <select class="custom-select my-1" data-toggle="tooltip" title="Select product Category !"name="selection">
                   <option selected value="0">Category : None</option>
                   <option value="1">Category : Equipments</option>
                   <option value="2">Category : Crops</option>
@@ -128,16 +127,16 @@
               </div>
 
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Title" name="title" required>
+                <input type="text" data-toggle="tooltip" title="Product Title. like - Graps !"class="form-control" placeholder="Title" name="title" required>
               </div>
 
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Discription" maxlength="1000" name="description" required>
+                <input type="text" data-toggle="tooltip" title="Product Details !" class="form-control" placeholder="Discription" maxlength="1000" name="description" required>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="digit" class="form-control" placeholder="Price(Rs)" name="price">
+                    <input type="digit" data-toggle="tooltip" title="Product Price !" class="form-control" placeholder="Price(Rs)" name="price">
                   </div>
                 </div>
                 <div class="form-group">
@@ -146,14 +145,14 @@
               </div>
 
               <div class="form-group">
-                <input type="digit" class="form-control" placeholder="Phone Number" name="phone_number">
+                <input type="digit" data-toggle="tooltip" title="Enter Your Phone Number !" class="form-control" placeholder="Phone Number" name="phone_number">
               </div>
               <h5>Location:</h5>
               <div class="clearfix"></div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <select class="custom-select my-1" name="division">
+                    <select class="custom-select my-1" data-toggle="tooltip" title="Select District !" name="division">
                       <option selected value="0">Ahmedabad</option>
                       <option value="1">Gandhinagar</option>
                       <option value="2">Mehsana</option>
@@ -170,8 +169,8 @@
 
 
               <div class="form-group">
-                <h5>Add Photos</h5>
-                <input type="file" name="image" required>
+                <h5>Add Photo</h5>
+                <input type="file" data-toggle="tooltip" title="Choose your product image in (png , jpg) format !" name="image" required>
               </div>
 
               <div class="form-group">
@@ -184,6 +183,12 @@
       </div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
   <!--connect-->
   <footer>
     <p>&copy 2023 Krushi Bazaar.All rights reserved.</p>

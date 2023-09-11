@@ -28,6 +28,7 @@
 
             <div class="<col-md-6 register-right">
               <h2>Register Here</h2>
+              
               <form  method="post" action="registration.php">
               <div class="register-form">
               <div class="form-group">
@@ -81,8 +82,8 @@
 <script type="text/javascript">
   var number_of_err = <?php echo(count($errors)) ?>;
   console.log(number_of_err);
-  // if(number_of_err>0) {
-    // var errors = <?php echo(json_encode($errors)) ?>;
+  if(number_of_err>0) {
+    var errors = <?php echo(json_encode($errors)) ?>;
     console.log(errors);
     for(var i=0;i<number_of_err;i++) {
       if(errors[i]=="pswd") {
@@ -104,5 +105,5 @@
         document.getElementById('phn').innerHTML =" ** Contact number exists";
       }
     }
-  // }
+  }
 </script>

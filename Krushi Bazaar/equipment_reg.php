@@ -109,22 +109,26 @@
             <h2><u>Post Your ad</u></h2>
             <form method="POST" action="backends/equipment_server.php" enctype="multipart/form-data">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Title" name="title" required>
+                <input type="text" data-toggle="tooltip" title="Product Title. like - tractor !" class="form-control" placeholder="Title" name="title" required>
+                <!-- <i class="fa fa-info" data-toggle="tooltip" title="Product Title. like - tractor."></i>(ex.) -->
               </div>
 
+
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Discription" maxlength="1000" name="description" required>
+                <input type="text" data-toggle="tooltip" title="Add Discription of product !" class="form-control" placeholder="Discription" maxlength="1000" name="description" required>
+                <!-- <i class="fa fa-info" data-toggle="tooltip" title="Add discription of product."></i>(ex.) -->
+
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="digit" class="form-control" placeholder="Price(Rs) Per hour" name="price" required>
+                    <input type="digit" data-toggle="tooltip" title="Your Product price per hour !" class="form-control" placeholder="Price(Rs) Per hour" name="price" required>
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <input type="digit" class="form-control" placeholder="Phone Number" name="phone_number" required>
+                <input type="digit" data-toggle="tooltip" title="Your Mobile Number !" class="form-control" placeholder="Phone Number" name="phone_number" required>
               </div>
               <h5>Location:</h5>
               <div class="clearfix"></div>
@@ -163,7 +167,7 @@
 
               <div class="form-group">
                 <h5>Add Photos</h5>
-                <input type="file" name="image" required>
+                <input type="file" data-toggle="tooltip" title="Choose your product image in (png , jpg) format !" name="image" required>
               </div>
 
               <div class="form-group">
@@ -179,6 +183,11 @@
   <!--connect-->
   <?php include("footer.php"); ?>
 
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
 
 </body>
 
