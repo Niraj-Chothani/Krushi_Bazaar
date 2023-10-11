@@ -104,13 +104,13 @@
       <hr>
       <div class="col-12">
         <p class="lead">This is a web based platform specially for farmers for
-          buying and selling crops and renting Equipments.Here the users can:</p>
+          buying and selling crops and renting Equipments. Here the users can:</p>
         <div style="text-align:left;padding-left:15%;">
           <li>Buy & Sell Products</li>
           <li>Rent Modern Equipments</li>
-          <li>Consulting with Egri engineers through admins</li>
+          <li>Consulting with Agri engineers through admins</li>
           <li>Book preservation center</li>
-          <li>Acknowledge about Smart Farming,Technology & Current Market</li>
+          <li>Acknowledge about Smart Farming, Technology & Current Market</li>
         </div>
       </div>
     </div>

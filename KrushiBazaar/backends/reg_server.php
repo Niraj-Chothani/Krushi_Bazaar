@@ -17,7 +17,7 @@ if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['name']);
   $phone_number = mysqli_real_escape_string($db, $_POST['phone_number']);
-  $location = mysqli_real_escape_string($db, $_POST['location']);
+  // $location = mysqli_real_escape_string($db, $_POST['location']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
@@ -27,69 +27,66 @@ if (isset($_POST['reg_user'])) {
   if ($password_1 != $password_2) {
 	array_push($errors, "pswd");
   }
-  if(strlen($username)<4 || strlen($username)>10) array_push($errors,"len");
+  // if(strlen($username)<4 || strlen($username)>10) array_push($errors,"len");
   if(strlen($password_1)<6) array_push($errors,"plen");
   if(!is_numeric($phone_number)) array_push($errors,"num");
 
   // first check the database to make sure
   // a user does not already exist with the same username and/or email
-  if(isset($_POST['users']) == 'Student'){
+//   if(isset($_POST['users']) == 'Student'){
     
-  $user_check_query = "SELECT * FROM student WHERE username='$username' OR phone_number='$phone_number' LIMIT 1";
-  // $user_check_query = "SELECT * FROM student WHERE phone_number='$phone_number' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
+//   $user_check_query = "SELECT * FROM student WHERE username='$username' OR phone_number='$phone_number' LIMIT 1";
+//   $result = mysqli_query($db, $user_check_query);
+//   $user = mysqli_fetch_assoc($result);
 
-  if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "usrex");
-    }
+//   if ($user) { // if user exists
+//     if ($user['username'] === $username) {
+//       array_push($errors, "usrex");
+//     }
 
-    if ($user['phone_number'] === $phone_number) {
-      array_push($errors, "px");
-    }
-  }
+//     if ($user['phone_number'] === $phone_number) {
+//       array_push($errors, "px");
+//     }
+//   }
 
-  // Finally, register user if there are no errors in the form
-  if (count($errors) == 0) {
-  	// $password = md5($password_1);//encrypt the password before saving in the database
-    // we have removed the password encryption
-  	$password = $password_1;//encrypt the password before saving in the database
+//   // Finally, register user if there are no errors in the form
+//   if (count($errors) == 0) {
+//   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO student (username,phone_number,location,email, password)
-  			  VALUES('$username', '$phone_number', '$location', '$email', '$password')";
-  	mysqli_query($db, $query);
-  	$_SESSION['username'] = $username;
-    $_SESSION['user_id'] = mysqli_insert_id($db);
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
-  }
-}
+//   	$query = "INSERT INTO student (username,phone_number,location,email, password)
+//   			  VALUES('$username', '$phone_number', '$location', '$email', '$password')";
+//   	mysqli_query($db, $query);
+//   	$_SESSION['username'] = $username;
+//     $_SESSION['user_id'] = mysqli_insert_id($db);
+//   	$_SESSION['success'] = "You are now logged in";
+//   	header('location: index.php');
+//   }
+// }
 
 
 if(isset($_POST['users']) == 'Farmer'){
     
-  $user_check_query = "SELECT * FROM farmer WHERE username='$username' OR phone_number='$phone_number' LIMIT 1";
+  $user_check_query = "SELECT * FROM multiuser WHERE phone='$phone_number' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
 
   if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "usrex");
-    }
+    // if ($user['username'] === $username) {
+    //   array_push($errors, "usrex");
+    // }
 
-    if ($user['phone_number'] === $phone_number) {
+    if ($user['phone'] === $phone_number) {
       array_push($errors, "px");
     }
   }
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	// $password = md5($password_1);//encrypt the password before saving in the database
   	$password = $password_1;//encrypt the password before saving in the database
+  	// $password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO farmer (username,phone_number,location,email, password)
-  			  VALUES('$username', '$phone_number', '$location', '$email', '$password')";
+  	$query = "INSERT INTO multiuser (username,phone,email,password,usertype)
+  			  VALUES('$username', '$phone_number','$email', '$password' , 'Farmer')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
     $_SESSION['user_id'] = mysqli_insert_id($db);
@@ -99,27 +96,27 @@ if(isset($_POST['users']) == 'Farmer'){
 }
 if(isset($_POST['users']) == 'businessmen'){
     
-  $user_check_query = "SELECT * FROM users WHERE username='$username' OR phone_number='$phone_number' LIMIT 1";
+  $user_check_query = "SELECT * FROM multiuser WHERE phone='$phone_number' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
 
   if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "usrex");
-    }
+    // if ($user['username'] === $username) {
+    //   array_push($errors, "usrex");
+    // }
 
-    if ($user['phone_number'] === $phone_number) {
+    if ($user['phone'] === $phone_number) {
       array_push($errors, "px");
     }
   }
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	// $password = md5($password_1);//encrypt the password before saving in the database
   	$password = $password_1;//encrypt the password before saving in the database
+  	// $password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO users (username,phone_number,location,email, password)
-  			  VALUES('$username', '$phone_number', '$location', '$email', '$password')";
+  	$query = "INSERT INTO multiuser (username,phone,email,password, usertype)
+  			  VALUES('$username', '$phone_number','$email', '$password' , 'Businessmen')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
     $_SESSION['user_id'] = mysqli_insert_id($db);
@@ -131,7 +128,6 @@ if(isset($_POST['users']) == 'businessmen'){
 
 
 // LOGIN USER
-
 if (isset($_POST['login_user'])) {
   $username = mysqli_real_escape_string($db, $_POST['name']);
   $password = mysqli_real_escape_string($db, $_POST['password_1']);
@@ -144,37 +140,32 @@ if (isset($_POST['login_user'])) {
   	array_push($errors, "Password is required");
   }
   */
-  if(isset($_POST['users']) == 'Student'){
+  // if(isset($_POST['users']) == 'Student'){
 
-  if (count($errors) == 0) {
+  // if (count($errors) == 0) {
   	
-  	$query = "SELECT * FROM student WHERE username='$username' AND password='$password'";
-  	$results = mysqli_query($db, $query);
-    $rslt = mysqli_fetch_assoc($results);
-  	if ($results) {
-  	  $_SESSION['username'] = $username;
-      // $_SESSION['user_id'] = $rslt['id'];
-      // $_SESSION['admin'] = $rslt['adminship'];
-      $_SESSION['status'] = 1;
-  	  $_SESSION['success'] = "You are now logged in";
-      ?>
-  	 
-      <script>
-      alert ('successfully logged in.');
-      </script>
-      <?php
-          header('location: index.php');
-  	}else {
-  		//array_push($errors, "Wrong username/password combination");
-      exit('Wrong username/password combination.');
-    }
-  }
- }
+  // 	$query = "SELECT * FROM student WHERE username='$username' AND password='$password'";
+  // 	$results = mysqli_query($db, $query);
+  //   $rslt = mysqli_fetch_assoc($results);
+  // 	if ($results) {
+  // 	  $_SESSION['username'] = $username;
+  //     // $_SESSION['user_id'] = $rslt['id'];
+  //     // $_SESSION['admin'] = $rslt['adminship'];
+  //     $_SESSION['status'] = 1;
+  // 	  $_SESSION['success'] = "You are now logged in";
+ 
+//           header('location: index.php');
+//   	}else {
+//   		//array_push($errors, "Wrong username/password combination");
+//       exit('Wrong username/password combination.');
+//     }
+//   }
+//  }
  if(isset($_POST['users']) == 'Farmer'){
 
   if (count($errors) == 0) {
   	
-  	$query = "SELECT * FROM farmer WHERE username='$username' AND password='$password'";
+  	$query = "SELECT * FROM multiuser WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
     $rslt = mysqli_fetch_assoc($results);
   	if (mysqli_num_rows($results) == 1) {
@@ -195,7 +186,7 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+  	$query = "SELECT * FROM multiuser WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
     $rslt = mysqli_fetch_assoc($results);
   	if (mysqli_num_rows($results) == 1) {

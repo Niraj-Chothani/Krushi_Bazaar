@@ -117,7 +117,7 @@
             <form method="POST" action="backends/product_server.php" enctype="multipart/form-data">
 
               <div class="form-group">
-                <select class="custom-select my-1" data-toggle="tooltip" title="Select product Category !"name="selection">
+                <select class="custom-select my-1" data-toggle="tooltip" title="Select product Category !" name="selection">
                   <option selected value="0">Category : None</option>
                   <option value="1">Category : Equipments</option>
                   <option value="2">Category : Crops</option>
@@ -127,7 +127,7 @@
               </div>
 
               <div class="form-group">
-                <input type="text" data-toggle="tooltip" title="Product Title. like - Graps !"class="form-control" placeholder="Title" name="title" required>
+                <input type="text" data-toggle="tooltip" title="Product Title. like - Graps !" class="form-control" placeholder="Title" name="title" required>
               </div>
 
               <div class="form-group">

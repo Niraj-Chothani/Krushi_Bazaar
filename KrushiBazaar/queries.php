@@ -20,7 +20,7 @@
 
   <style>
     .eq {
-      margin-top: 0px;
+      margin-top: -151px;
       display: inline-block;
       position: fixed;
       top: 0;

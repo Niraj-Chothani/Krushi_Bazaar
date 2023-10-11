@@ -3,7 +3,7 @@ include("logout.php");
 
 $db = mysqli_connect('localhost', 'root', '', 'krushi_bazaar');
 $user = $_SESSION['username'];
-$query = "SELECT id FROM `users` WHERE `username`='$user' LIMIT 1";
+$query = "SELECT id FROM `multiuser` WHERE `username`='$user' LIMIT 1";
 $result = mysqli_query($db, $query);
 $res = mysqli_fetch_assoc($result);
 $sid = $res['id'];
@@ -40,8 +40,8 @@ if (isset($_POST['submit_btn'])) {
 
   /// storing in Database
 
-  $sql = "INSERT INTO `products` (title,description,price,phone_number,location,negotiable,category,division,availability)
-        VALUES('$title', '$des', '$price', '$phone_number', '$location', '$negotiable', '$category', '$division', '1')";
+  $sql = "INSERT INTO `products` (title,description,price,phone_number,location,negotiable,category,division,availability,status)
+        VALUES('$title', '$des', '$price', '$phone_number', '$location', '$negotiable', '$category', '$division', '1','pending')";
   if (mysqli_query($db, $sql)) $flag = 1;
   else echo ("error" . mysqli_error($db));
 

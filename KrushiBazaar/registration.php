@@ -28,7 +28,6 @@
 
             <div class="<col-md-6 register-right">
               <h2>Register Here</h2>
-              
               <form  method="post" action="registration.php">
               <div class="register-form">
               <div class="form-group">
@@ -36,20 +35,20 @@
                   <select name="users" id="user" class="text-danger font-weight-bold">
                     <option value="Farmer" name="Farmer">Farmer</option>
                     <option value="Businessmen" name="Businessmen">Businessmen</option>
-                    <option value="Student" name="Student">Student</option>
+                    <!-- <option value="Student" name="Student">Student</option> -->
                   </select>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Name" required>
+                  <input type="text" class="form-control" name="name" placeholder="User Name" required>
                   <span id="usr" class="text-danger font-weight-bold"> </span>
                 </div>
                 <div class="form-group">
                   <input type="phone number" class="form-control" name="phone_number" placeholder="Phone Number" required>
                   <span id="phn" class="text-danger font-weight-bold"> </span>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <input type="text" class="form-control" name="location" placeholder="Location" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" placeholder="Email(optional)">
                 </div>

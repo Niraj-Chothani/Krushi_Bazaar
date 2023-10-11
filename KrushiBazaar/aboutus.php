@@ -19,10 +19,10 @@ include("backends/logout.php");
   <link href="css/style.css" rel="stylesheet">
 
   <style>
-    .eq {
-      /* margin-top: 0px; */
+    .eq{
+      margin-top: -99px;
       display: inline-block;
-      position: fixed !important;
+      position: fixed;
       top: 0;
     }
 
@@ -38,7 +38,6 @@ include("backends/logout.php");
 </head>
 
 <body style="background-color:#e9ecef;">
-
 
   <?php include("header.php"); ?>
 
@@ -73,3 +72,4 @@ include("backends/logout.php");
 </body>
 
 </html>
+

@@ -39,19 +39,27 @@
                 ?>
                 <div class="form-group">
                   <label for="users">Login as</label>
-                  <select name="users" id="user" class="text-danger font-weight-bold">
+                  <select name="users" id="user" class="text-dark font-weight-bold">
+
                     <option value="Farmer" name="Farmer">Farmer</option>
                     <option value="Businessmen" name="Businessmen">Businessmen</option>
-                    <option value="Student" name="Student">Student</option>
+                    <option value="Admin" name="Admin">Admin</option>
+
+                    <!-- <option value="Farmer" name="Farmer">Farmer</option>
+                    <option value="Businessmen" name="Businessmen">Businessmen</option>
+                    <option value="Student" name="Student">Student</option> -->
                   </select>
                 </div>
                 <div class="form-group">
 
                   <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="Name" required>
+                    <label for="mobile" class="text-primary font-weight-bold">Phone Number</label>
+                    <input type="text" class="form-control" name="phone" placeholder="Phone Number(without country code)" required>
+                    <!-- <input type="text" class="form-control" name="username" placeholder="Name" required> -->
                     <span id="usr" class="text-danger font-weight-bold"> </span>
                   </div>
                   <div class="form-group">
+                    <label for="mobile" class="text-primary font-weight-bold">Password</label>
                     <input type="password" class="form-control" name="password_1" placeholder="Password" required>
                   </div>
 
